@@ -5,13 +5,12 @@ jobs:
   restore:
     strategy:
       matrix:
-        dotnet-version: [3.1.100, 3.1.101]
+        dotnet-version: [3.1.301, 3.1.200, 3.1.101, 3.0.100]
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/setup-dotnet@v1
-#        with:
-#          dotnet-version: ${{ matrix.dotnet-version }}
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
       - run: dotnet --version
       - run: dotnet new console
       - run: dotnet add package NuGet.Packaging
