@@ -14,5 +14,7 @@ jobs:
       - run: dotnet new console
       - run: dotnet add package NuGet.Packaging
       - run: |
-          dotnet restore --packages packages --source https://api.nuget.org/v3/index.json --force
+          dotnet restore --packages packages --source https://api.nuget.org/v3/index.json --force --use-lock-file
           ls packages
+      - run: cat packages.lock.json
+        
